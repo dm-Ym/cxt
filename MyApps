@@ -11,6 +11,7 @@ google-chrome
 intellij-idea-community-edition
 networkmanager
 neofetch
+neovim
 netease-cloud-music
 plasma-desktop
 plasma-nm
@@ -18,7 +19,11 @@ plasma-pa
 powerdevil
 pulseaudio pulseaudio-alsa
 polybar
+qv2ray-dev-git v2ray
+com.qq.im.deepin
+ranger
 sddm
+tldr
 visual-studio-code-bin
 wget
 w3m
