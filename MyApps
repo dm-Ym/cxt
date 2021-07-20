@@ -23,8 +23,12 @@ polybar
 qv2ray-dev-git v2ray
 com.qq.im.deepin
 ranger
+refind refind-install
 sddm
+screenkey
+simplescreenrecorder
 tldr
+unzip zip
 visual-studio-code-bin
 wget
 w3m

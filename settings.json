@@ -1,0 +1,38 @@
+{
+    "editor.fontSize": 19,
+    "editor.cursorBlinking": "solid",
+    // theme
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Oceanic Plus",
+    //
+    //vim 
+    //
+    //Xmodmap esc enable
+    "keyboard.dispatch":"keyCode",
+    //zz:把光标移到屏幕中间
+    "vim.hlsearch": true, 
+    "vim.leader": "<space>",
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+    ],
+    "vim.insertModeKeyBindings": [
+        { "before":["Q"], "after":[":q"] },
+        { "before":["<C-j"], "after":["down"] }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before":["<leader>", "q"], "after":[":q<CR>"] },
+        { "before":["<leader", "w"], "after":[":w<CR>"] },
+        { "before":[""], "after":[":w", "<CR>"] },
+        { "before":["L"], "after":["$"] },
+        { "before":["H"], "after":["0"] },
+        { "before":["m"], "after":["5", "j"] },
+        { "before":["M"], "after":["4", "k"] },
+        { "before":["J"], "after":["g", "T"] },
+        { "before":["K"], "after":["g", "t"] },
+        { "before":["<leader>", "h"], "commands":[":nohlsearch"] },
+        { "before":["<C-j>"], "after":["<C-w>", "j"] },
+        { "before":["<C-k>"], "after":["<C-w>", "k"] },
+        { "before":["<C-h>"], "after":["<C-w>", "h"] },
+        { "before":["<C-l>"], "after":["<C-w>", "l"] },
+        { "before":["<leader>", "v", "s"], "commands":[":vs<CR>"] },
+    ]
+}
