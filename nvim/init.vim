@@ -21,16 +21,16 @@ set scrolloff=5
 set incsearch               
 set smartcase
 noremap <leader>h :nohlsearch<CR>
+" 显示行号
+set nu
 " 相对行号
 set relativenumber
 " 显示当前按下的cmd
 set showcmd
 " 命令补全提示
 set wildmenu
-" 显示文件中的tab和空白符
+" 显示文件中的tab和空白符 (It's doesn't seem to work)
 set listchars=tab:>-,trail:-
-" 显示行号
-set nu
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 " 自动缩进
@@ -93,9 +93,15 @@ noremap tl :+tabnext<CR>
 
 " vim-plug 
 call plug#begin('~/.config/nvim/plugged')
+" status bar
 Plug 'vim-airline/vim-airline'
-Plug 'connorholyday/vim-snazzy'
-Plug 'scrooloose/nerdcommenter'
+
+Plug 'davidhalter/jedi-vim'
+
+" theme 
+Plug 'mhartington/oceanic-next'
+"Plug 'connorholyday/vim-snazzy'
+
 call plug#end()
 
 " snazzy
@@ -106,8 +112,9 @@ let g:lightline = {
 \ 'colorscheme': 'snazzy',
 \ }
 
-
+" 
 " nerdcommenter
+"
 "add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " python 自动的会多加一个空格
@@ -126,3 +133,27 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+
+
+" 
+" jedi-vim
+"
+let g:jedi#auto_initialization = 0
+
+
+
+" 
+" Oceanic-next
+"
+if (has("termguicolors"))
+ set termguicolors
+endif
+" Theme
+syntax enable
+colorscheme OceanicNext
+" transparent
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
