@@ -3,9 +3,11 @@ alsa-utils
 bluedevil
 curl
 com.qq.im.deepin
+cmatrix
 dhcpcd
 fcitx fcitx-configtool fcitx-im fcitx-googlepinyin
 flameshot
+fortune
 git
 google-chrome
 intellij-idea-community-edition
@@ -14,6 +16,7 @@ networkmanager
 neofetch
 neovim
 netease-cloud-music
+node.js
 plasma-desktop
 plasma-nm
 plasma-pa
@@ -21,6 +24,8 @@ powerdevil
 pulseaudio pulseaudio-alsa
 polybar
 putty
+pip 2 3
+python-pynvim
 qv2ray-dev-git v2ray
 com.qq.im.deepin
 ranger
@@ -28,7 +33,9 @@ refind refind-install
 sddm
 screenkey
 simplescreenrecorder
+sl
 tldr
+toilet
 unzip zip
 visual-studio-code-bin
 wget
