@@ -1,0 +1,61 @@
+alacritty
+com.qq.im.deepin
+fcitx5 fcitx5-*
+flameshot
+fortune
+figlet		将后面的文本转换为文本横幅
+git
+google-chrome
+intellij-idea-community-edition
+neofetch
+neovim
+netease-cloud-music
+node.js
+plasma-nm		系统托盘wifi小程序
+plasma-pa		系统托盘声音小程序
+powerdevil		设置-电源管理
+polybar		i3
+putty		ssh连接
+pip 2 3
+python-pynvim
+paru		aur管理器(可上archwiki搜索AUR helpers获取其他aur管理器)
+ranger
+refind refind-install
+screenkey
+simplescreenrecorder	录屏
+sl		一辆小火车跑过
+tldr	too long, don`t read
+toilet	与sl联用可上色
+unzip zip
+ueberzug	ranger preview_image(arch kde)
+visual-studio-code-bin
+wget
+w3m			ranger preview_image
+xf86-video-amdgpu
+xf86-input-libinput
+xf86-input-synaptics		brightness control of keyboard
+xsel	//nvim paste
+zsh
+
+# 安装过程中的package
+amd-utils
+amd-ucode
+dhcpcd
+iwd
+linux linux-firmware
+plasma-desktop
+sddm
+xorg
+
+# pacman安装
+alsa-utils
+bluedevil
+curl
+cmatrix
+ntfs-3g
+networkmanager
+refind
+screen
+sudo
+tmux
+pulseaudio pulseaudio-alsa		about声音
