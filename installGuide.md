@@ -132,7 +132,7 @@ vim /etc/hosts
 
 #### 安装相关包
 
-> pacman -S grub efibootmgr efivar networkmanager dhcpcd iwd sudo neovim amd-ucode 
+> pacman -S grub efibootmgr efivar networkmanager dhcpcd iwd sudo neovim zsh amd-ucode 
 
 ### 配置grub到EFI分区
 
@@ -150,7 +150,9 @@ vim /etc/hosts
 
 ### 新建用户
 
-> useradd -m -G wheel newName
+> useradd -m -G "附加组" -s "登录shell" "用户"
+
+> useradd -m -G wheel -s zsh newName
 
 > passwd newName
 
