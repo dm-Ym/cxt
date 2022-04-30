@@ -180,7 +180,7 @@ nvim /etc/pacman.conf
 
 > sudo pacman -S archlinuxcn-keyring
 
-*注*： 如果以上更新密钥步骤出现错误，就是那种连着一串ERROR的情况，请执行以下步骤
+**注**： 如果以上更新密钥步骤出现错误，就是那种连着一串ERROR的情况，请执行以下步骤
 
 > rm -rf /etc/pacman.c/gnupg
 >
