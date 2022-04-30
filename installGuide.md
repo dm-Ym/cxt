@@ -29,7 +29,8 @@ vim /etc/pacman.d/mirrorlist
 vim /etc/pacman.conf
 
 > [archlinuxcn]
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+> 
+> Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 ### 更新系统时间
 
@@ -40,8 +41,8 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 #### `lsblk` 查看分区情况
 
 > EFI	300MB
-swap	可选
-root	随意,越大越好
+> swap	可选
+> root	随意,越大越好
 
 `cfdisk <disk name>` 我的是`/dev/nvme0n1`
 
@@ -70,7 +71,8 @@ lsblk	#查看分区情况
 #### 生成文件系统的表文件
 
 > genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
+> 
+> cat /mnt/etc/fstab
 
 #### 进入新系统
 
@@ -81,7 +83,8 @@ cat /mnt/etc/fstab
 ### 设置时区
 
 > ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-hwclock --systohc
+>
+> hwclock --systohc
 
 运行hwclock,生成/etc/adjtime
 
@@ -96,7 +99,8 @@ vim /etc/locale.gen
 将以下两行取消注释(删除前面的井号)
 
 > en_US.UTF-8 UTF-8
-zh_CN.UTF-8 UTF-8
+>
+> zh_CN.UTF-8 UTF-8
 
 #### 生成本地语言信息
 
@@ -121,8 +125,10 @@ vim /etc/hostname
 vim /etc/hosts
 
 > 127.0.0.1   localhost
-::1         localhost
-127.0.1.1   hostname.localdomain hostname   # 这里的hostname是主机名
+>
+> ::1         localhost
+>
+> 127.0.1.1   hostname.localdomain hostname   # 这里的hostname是主机名
 
 #### 安装相关包
 
@@ -131,7 +137,8 @@ vim /etc/hosts
 ### 配置grub到EFI分区
 
 > grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
-grub-mkconfig -o /boot/grub/grub.cfg
+>
+> grub-mkconfig -o /boot/grub/grub.cfg
 
 ### 激活启用NetworkManager
 
@@ -152,9 +159,12 @@ vim /etc/sudoers 去掉%wheel ALL=(ALL:ALL) ALL的注释
 ### 退出重启
 
 > exit
-umount /mnt/boot/efi
-umount /mnt
-reboot
+>
+> umount /mnt/boot/efi
+>
+> umount /mnt
+>
+> reboot
 
 ## 基本配置
 
@@ -165,16 +175,20 @@ reboot
 nvim /etc/pacman.conf
 
 > [archlinuxcn]
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+>
+> Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 > sudo pacman -S archlinuxcn-keyring
 
 *注*： 如果以上更新密钥步骤出现错误，就是那种连着一串ERROR的情况，请执行以下步骤
 
 > rm -rf /etc/pacman.c/gnupg
-pacman-key --init
-pacman-key --populate archlinux archlinuxcn
-pacman -Syy
+>
+> pacman-key --init
+>
+> pacman-key --populate archlinux archlinuxcn
+>
+> pacman -Syy
 
 
 ### 显卡驱动
@@ -217,5 +231,7 @@ pacman -Syy
 nvim .pam_environment
 
 > export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx5"
+>
+> export QT_IM_MODULE=fcitx5
+>
+> export XMODIFIERS="@im=fcitx5"
