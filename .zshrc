@@ -62,6 +62,3 @@ setopt PROMPT_SUBST
 PROMPT='
 %F{26}# %F{45}%n%f @ %F{41}%m %F{222}%~%f ${vcs_info_msg_0_}
 %F{160}$ '
-
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
