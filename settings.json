@@ -12,6 +12,8 @@
     },
 
     // vim
+    //Xmodmap esc enable
+    "keyboard.dispatch":"keyCode",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
