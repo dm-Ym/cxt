@@ -53,7 +53,8 @@ direction: rtl
 unicode-bidi: bidi-override
 
 文本中图像的垂直对齐:
-vertical-align: top | middle | bottom
+vertical-align: top | middle
+- bottom | bottom
 
 文本装饰线:
 text-decoration: underline | none [| line-through | overline]
@@ -80,8 +81,10 @@ white-space: nowrap
 对空白部分的处理,上面例子:不折行
 
 阴影效果:
-text-shadow: px px [ px color];
-第三个px: 向阴影添加模糊效果
+text-shadow:h-shadow v-shadow blur color;
+h-shadow: 必需,水平阴影的位置,允许负值
+v-shadow: 必需,垂直阴影的位置,允许负值
+blur: 可选,模糊距离: 阴影的虚实
 
 ### background
 - background-color
@@ -176,18 +179,6 @@ visibilisty会占据位置,display隐藏的好像不存在一样
 
 inline-block: 可设置width和height,一行可有多个(结合了inline和block)
 
-
-position: 
-- static: 静态的, 不受方位名词(top/bottom/right/left的影响)
-- relative: 相对的
-- fixed: 固定的
-- absolute: 绝对的
-- sticky: 粘性
-
-堆叠顺序:
-z-index: 
-
-
 overflow[-x(y)]
 - visible - 默认。溢出没有被剪裁。内容在元素框外渲染
 - hidden - 溢出被剪裁，其余内容将不可见
@@ -195,4 +186,201 @@ overflow[-x(y)]
 - auto - 与 scroll 类似，但仅在必要时添加滚动条
 
 
+
+阴影效果:
+box-shadow: h-shadow v-shadow blur spread color inset;
+h-shadow: 必需,水平阴影的位置,允许负值
+v-shadow: 必需,垂直阴影的位置,允许负值
+blur: 可选,模糊距离: 阴影的虚实
+spread: 可选,阴影的尺寸: 阴影的大小
+inset: 将外部阴影改为内部阴影(outset默认,不用写出来)
+
+
+### 三大布局方式
+标准流(文档流、普通流)、float、position
+
 浮动和清楚: float clear
+
+float: none | right | left;
+float属性用于创建浮动框,将其移动到一边,知道左边缘或右边缘触及包含块或另一个浮动框的边缘
+
+特性:
+1. 浮动元素会脱离标准流(脱标)
+   1. 脱离标准流的控制(脱)浮动到指定位置(动),俗称脱标.
+   2. 浮动的盒子**不再保留原先的位置**
+2. 浮动元素会一行内显示并且元素顶部对齐
+3. 浮动的元素会具有行内块元素的特性
+
+清除浮动:
+- 清除浮动造成的影响
+- 若父盒子本身有高度则不需要清除浮动
+- 清除浮动之后,父级就会根据浮动的子盒子自动检测高度.父级有了高度就不会影响后面的标准流了.
+
+清除浮动的方法: 
+1. 额外标签法(隔离法),在父级元素后添加额外的块级标签.
+2. 父级元素添加overflow属性, hidden,auto,scroll
+3. 父级元素添加after伪元素
+4. 父级元素添加双伪元素
+
+
+### 案例
+5.3 CSS属性书写顺序(重点)
+建议遵循以下顺序:
+1.布局定位属性: display / position/ float / clear / visibility/ overflow (建议display第一个写 ,毕竟关系到模式)
+2.自身属性: width/ height / margin/ padding / border/ background
+3.文本属性: color/ font / text-decoration/ text-align/ vertical-align/ white- space / break-word
+4.其他属性( CSS3) : content/ cursor / border-radius / box-shadow / text -shadow/ background:linear-gradien...
+
+5.4页面布局整体思路
+为了提高网页制作的效率,布局时通常有以下的整体思路:
+1.必须确定页面的版心(可视区) , 我们测量可得知。
+2.分析页面中的行模块,以及每个行模块中的列模块。页面布局第- -准则.
+3.一行中的列模块经常浮动布局,先确定每个列的大小，之后确定列的位置.页面布局第二准则
+4.制作HTML结构。我们还是遵循,先有结构,后有样式的原则。结构永远最重要
+5.所以,先理清楚布局结构,再写代码尤为重要这需要我们多写多积累
+
+### 定位
+将盒子**定**在某一个位置,**定位也是在摆放盒子,按照定位的方式移动盒子.**
+定位 = 定位模式 + 边偏移
+- static
+- relative
+- absolute
+- fixed
+- sticky
+
+static:默认方式,无定位的意思(了解)
+
+relative:元素在移动的时候,是相对于它**原来的位置**来移动的
+特点:
+- 相对自己原来的位置移动
+- 原本的位置继续占有,后面的盒子任以标准流方式对准.(不脱标,继续保留原本位置)
+**典型应用:**给'绝对定位'定位的
+
+absolute:相对它的**祖先元素**来说的
+特点:
+- 若无祖先元素或祖先元素没有定位,则以浏览器为准来定位
+- 若祖先元素有定位(相对绝对固定),则以最近一级的有定位祖先元素为参考点移动位置
+- **不再占有原先的位置.(脱标)**
+
+fixed:元素固定在浏览器可视区的位置
+主要使用场景: 浏览器页面滚动时,元素的位置不会改变.
+- 跟父元素没有任何关系
+- 不随滚动条滚动
+- 不占有原本的位置(脱标)
+
+让固定定位固定在版心的右侧?
+left: 50%;
+margin-left: 版心宽度的一半;
+
+sticky:了解
+特点:
+- 以浏览器可视窗口为参照移动
+- 粘性定位占有原本的位置
+- 必须添加top/bottom/right/left其中一个才能生效
+
+
+定位叠放次序z-index
+z-index: 
+- 整数(数字越大,越靠上)
+- 若值相同,后者在上
+- 数字后面没有单位
+- 只有定位的盒子才有z-index
+
+
+#### 定位和浮动
+浮动: 只会压住下面标准流的盒子,但是不会压住标准流盒子里面的文字和图片. 浮动最初的设计是为了文字环绕图片.
+绝对定位会压住标准流下面所有的内容.
+
+
+### 元素的显示和隐藏
+- display
+- visibility
+- overflow
+
+display: none;
+隐藏元素后,不再占有原来的位置
+
+visibility: hidden | visible(可见的);
+隐藏元素后,继续占有原来的位置
+
+overflow: visible(默认) | hidden | scroll | auto;
+
+### 精灵图
+就是把多个小背景图整合到一张大图中,然后通过background-position平移来获取需要的图片
+1. 主要针对小的背景图片使用
+2. 借助background-position实现
+3. 一般情况小都是负值.
+
+### 字体图标
+- 轻量级: 一个图标字体要比一系列的图像要小。- -旦字体加载了,图标就会马上渲染出来,减少了服务器请求
+- 灵活性:本质其实是文字,可以很随意的改变颜色、产生阴影、透明效果、旋转等
+- 兼容性:几乎支持所有的浏览器,请放心使用
+**注意:**字体图标不能替代精灵技术,只是对工作中图标部分技术的提升和优化。
+
+### 三角
+给一个没有宽度的盒子设置边框,其中一个边框显示颜色,其他三个边框透明就可得到
+e.g. :
+```html
+.box {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: red;
+}
+```
+
+
+### 鼠标样式
+cursor: 
+- default
+- pointer 小手
+- move  移动
+- text  文本
+- not-allowed 禁止
+
+### 一些小技巧
+
+文本框防止拖动:
+resize: none;
+
+
+vertical-align
+经常用于设置图片或表单等行内块元素(或行内元素)与文字垂直对齐.
+- baseline  默认
+- top
+- middle
+- bottom
+
+解决图片底部默认空白缝隙问题
+原因: 行内块(行内)元素与文字默认基线(baseline)对齐
+解决办法: 
+1. vertical-align: top | middle | bottom
+2. 把图片转为块元素display: block;
+
+
+溢出文字省略号显示
+1. 单行文本溢出
+   1. 强制一行内显示文本
+    white-space: nowrap;
+   2. 超出部分隐藏
+   overflow: hidden;
+   3. 文字用省略号代替溢出部分
+   text-overflow: ellipsis;
+2. 多行文本溢出
+了解就好,让后台来做
+
+
+margin负值
+边框重复: 
+解决: margin-left: -1px;
+
+若按照上面描述,右边框会被后面的盒子压住,显示不出来
+解决:
+1.没有定位的情况
+position: relative; 增加相对定位,压住其他盒子
+2.有定位情况
+z-index: 1;提高等级
+
+
+## h5
+## c3
