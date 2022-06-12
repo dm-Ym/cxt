@@ -17,22 +17,6 @@ vnoremap L g_
 vnoremap fy "+y
 inoremap jk <ESC>
 "inoremap <esc> <nop>
-" leader
-let mapleader=';'
-" source init.vim
-noremap <leader>r :source %<CR>
-" 
-set mouse=a
-" map
-nnoremap <leader>w :w!<CR>
-noremap H 0
-noremap L $
-noremap m 5j
-noremap M 4k
-noremap U u
-nnoremap <leader>' 0i"<esc>
-nnoremap <leader>3 0i#<esc>
-vnoremap L $h
 " 显示颜色
 set t_Co=256
 set laststatus=2
