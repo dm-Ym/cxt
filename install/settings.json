@@ -7,13 +7,17 @@
     "workbench.iconTheme": "vscode-icons",
     "bracket-pair-colorizer-2.depreciation-notice": false,
     "explorer.confirmDelete": false,
+    "emmet.triggerExpansionOnTab": true,
     "editor.codeActionsOnSave": {
-    
     },
 
+    "markdown-preview-enhanced.mermaidTheme":"forest",
+
+    // 保存时自动格式化
+    // "editor.formatOnType": true,
+    // "editor.formatOnSave": true,
+
     // vim
-    //Xmodmap esc enable
-    "keyboard.dispatch":"keyCode",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
@@ -21,11 +25,15 @@
     "vim.commandLineModeKeyBindingsNonRecursive": [
     ],
     "vim.insertModeKeyBindings": [
-        { "before": ["j", "k"],"after": ["<Esc>"] }
+        { "before": ["j", "k"],      "after": ["<Esc>"] },
+        { "before": ["<C-j>"],       "after": ["down"]  },
+        { "before": ["<C-k>"],       "after": ["up"]    },
+        { "before": ["<C-h>"],       "after": ["left"]  },
+        { "before": ["<C-l>"],       "after": ["right"] },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": ["f","y"],       "after": ["\"", "+", "y","<Esc>"] },
-        { "before": ["L"],           "after": ["$"]            },
+        { "before": ["L"],           "after": ["$","h"]        },
         { "before": ["H"],           "after": ["^"]            },
         { "before": ["enter"],       "after": ["a", "f"]       },
         { "before": ["m"],           "after"   :["4","j"]      },
@@ -47,9 +55,12 @@
         { "before": ["g","h"],       "after"   :["<C-w>","h"]},
         { "before": ["g","j"],       "after"   :["<C-w>","j"]},
         { "before": ["g","k"],       "after"   :["<C-w>","k"]},
-        { "before": ["<C-k>"],       "after"   :["g","t"]    },
-        { "before": ["<C-j>"],       "after"   :["g","T"]    },
+        { "before": ["t","k"],       "after"   :["g","t"]    },
+        { "before": ["t","j"],       "after"   :["g","T"]    },
     ],
     "terminal.integrated.allowChords": false,
-    "previewServer.port":5500
+    "liveServer.settings.donotShowInfoMsg": true,
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false
 }
