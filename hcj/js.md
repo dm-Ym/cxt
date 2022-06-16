@@ -17,7 +17,7 @@
 
 ### 数据类型
 
-简单数据类型(基本数据类型)
+*简单数据类型(基本数据类型)
 
 Number      默认值： 0
 
@@ -31,9 +31,7 @@ Null                null
 
 
 
-
-
-Number
+*Number
 
 数字型最大值 Number.MAX_VALUE
 
@@ -44,9 +42,9 @@ Number
 undefined + 1              //NaN
 
 
-isNaN()用来判断非数字,若为数字返回false,比如 10 , '10'. 若为非数字,返回true
+*isNaN()用来判断非数字,若为数字返回false,比如 10 , '10'. 若为非数字,返回true
 
-String拼接
+*String拼接
 
 'hello' + 'world'  //'helloworld'
 
@@ -63,20 +61,19 @@ String拼接
 undefined + '22'  //undefined22
 
 
-Boolean
+*Boolean
 
 true + 1          //2
 
 
-获取变量类型 typeof var
+*获取变量类型 typeof var
 
 typeof null     //object
 
 prompt所取的数字是字符型 
 
 
-数据类型的转换
-
+*数据类型的转换
 
 转为String
 
@@ -85,7 +82,6 @@ var.toString()
 String(var)
 
 使用 '+' 字符串拼接
-
 
 
 转为Number
@@ -105,9 +101,6 @@ Number(string)
 使用'-', '*' '/' 运算符隐式转换   //'12' - 0
 
 
-
-
-
 转为Boolean
 
 Boolean()
@@ -117,15 +110,11 @@ Boolean()
 其余转为true
 
 
-
-
-
 ### 运算符 operator
 
 不能直接拿浮点数进行比较是否相等
 
 0.1 + 0.2 == 0.3    //false
-
 
 
 var p = 10
@@ -135,12 +124,11 @@ var p = 10
 p++ + 10        //20
 
 
-
 p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
 
 
 
-比较运算符
+*比较运算符
 
 =       赋值
 
@@ -150,9 +138,7 @@ p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
 
 
 
-
-
-逻辑运算符
+*逻辑运算符
 
 短路运算(逻辑终端)
 
@@ -777,15 +763,11 @@ html:
 
 由三部分组成: 事件源, 事件类型, 事件处理程序. 也成为事件三要素
 
-
-
 1.事件源: 事件被触发的对象
 
 2.事件类型: 如何触发: 鼠标点击,鼠标经过, 键盘按下
 
 3.事件处理程序: 通过一个函数赋值的方式完成
-
-
 
 ```javascript
 
@@ -808,3 +790,32 @@ btn.onclick = function() {  // 事件类型: 鼠标点击
 2. 注册事件(绑定事件)
 
 3. 添加事件处理程序(采取函数赋值形式)
+
+
+*操作元素
+
+修改元素内容:
+
+innerText 和 innerHTML
+
+对于普通盒子
+
+element.innerText = 'str'
+
+element.innerHTML = 'str'
+
+innerText不识别html标签并且会去除空格和换行,innerHTML识别
+
+样式属性操作:
+
+> 1. element.style  行内样式操作
+> 
+> 2. element.className  类名样式操作
+
+
+获取属性的值: 
+
+1. element.属性     获取内置属性值
+
+2. element.getAttribute('属性')  获取自定义的属性
+
