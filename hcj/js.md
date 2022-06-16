@@ -1,23 +1,33 @@
-### 变量
+# Js第一遍学习
+
+---
+
+# 变量
 
 尽量不要使用'name'做变量名,因为有的浏览器有特殊含义
 
 - 为什么需要变量?
+
   一些数据需要保存起来
 
 - 变量是什么? 
+
   变量是一种使用方便的占位符，用于引用计算机内存地址，该地址可以存储Script运行时可更改的程序信息。 
 
 - 变量的本质是什么?
+
   内存中的一块空间,用来存储数据
 
 - 什么是变量初始化?
+
   声明并赋值
 
+---
 
-### 数据类型
 
-*简单数据类型(基本数据类型)
+# 数据类型
+
+简单数据类型(基本数据类型)
 
 Number      默认值： 0
 
@@ -29,9 +39,10 @@ Undifined           undifined
 
 Null                null
 
+---
 
 
-*Number
+## Number
 
 数字型最大值 Number.MAX_VALUE
 
@@ -41,10 +52,13 @@ Null                null
 
 undefined + 1              //NaN
 
+---
 
-*isNaN()用来判断非数字,若为数字返回false,比如 10 , '10'. 若为非数字,返回true
+isNaN() 用来判断非数字,若为数字返回false,比如 10 , '10'. 若为非数字,返回true
 
-*String拼接
+---
+
+String 拼接
 
 'hello' + 'world'  //'helloworld'
 
@@ -60,20 +74,26 @@ undefined + 1              //NaN
 
 undefined + '22'  //undefined22
 
+---
 
-*Boolean
+
+## Boolean
 
 true + 1          //2
 
+---
 
-*获取变量类型 typeof var
+获取变量类型 typeof var
 
 typeof null     //object
 
 prompt所取的数字是字符型 
 
+---
 
-*数据类型的转换
+## 数据类型的转换
+
+---
 
 转为String
 
@@ -83,23 +103,25 @@ String(var)
 
 使用 '+' 字符串拼接
 
+---
 
 转为Number
 
 parseInt(string)        
 
-舍去小数取整. parseInt(3.54) 结果为3
+舍去小数取整. parseInt(3.54) 		结果为3
 
-去除单位.    parseInt('120px')   结果为120
+去除单位  parseInt('120px')   		结果为120
 
-parseInt('rem120px')    NaN.
+parseInt('rem120px')             //   NaN.
 
 parseFloat(string)
 
 Number(string)
 
-使用'-', '*' '/' 运算符隐式转换   //'12' - 0
+使用'-', '*' '/' 运算符隐式转换  	 //'12' - 0
 
+---
 
 转为Boolean
 
@@ -109,42 +131,46 @@ Boolean()
 
 其余转为true
 
+---
 
-### 运算符 operator
+
+## 运算符 operator
+
+---
 
 不能直接拿浮点数进行比较是否相等
 
-0.1 + 0.2 == 0.3    //false
+0.1 + 0.2 == 0.3  	  //false
 
+---
 
 var p = 10
 
-++p + 10        //21
+++p + 10     	   //21
 
-p++ + 10        //20
+p++ + 10      	  //20
 
+p++ + ++p     	  //22.   p++ -> 10, p->11, ++p -> 12
 
-p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
+---
 
+比较运算符
 
+=       	赋值
 
-*比较运算符
+==        判断(隐式转换, 6 == '6' true)
 
-=       赋值
+===      全等(两边数据类型是否一致)
 
-==      判断(隐式转换, 6 == '6' true)
+---
 
-===     全等(两边数据类型是否一致)
-
-
-
-*逻辑运算符
+逻辑运算符
 
 短路运算(逻辑终端)
 
 原理: 当有多个表达式(值)时,左边的表达式值可以确定结果时,就不再继续运算右边表达式的值.
 
-
+---
 
 逻辑与
 
@@ -154,11 +180,11 @@ p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
 
 反之
 
-0 && 123      //0
+0 && 123   			   //0
 
-123 && 345      //345
+123 && 345    		  //345
 
-
+---
 
 逻辑或
 
@@ -168,11 +194,11 @@ p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
 
 反之
 
-0 || 234      //234
+0 || 234    		   //234
 
-123 || 345      //123
+123 || 345    	  //123
 
-
+---
 
 运算符优先级
 
@@ -192,37 +218,27 @@ p++ + ++p       //22.   p++ -> 10, p->11, ++p -> 12
 
 8. ,
 
+---
 
+# 流程控制
 
-
-
-### 流程控制
-
+```javascript
 switch(expr){
-
   case value1:
-
     code;
-
     break;
-
   case value2:
-
     code;
-
     break;
-
   ...
-
   default:
-
     code;
-
 }
+```
 
 **注意:** expr与value匹配时值是全等的
 
-
+---
 
 switch 和 if else if
 
@@ -230,17 +246,17 @@ switch 和 if else if
 
 - switch判断后直接跳转执行,效率较高.if不论如何,都要从上往下执行
 
+---
 
+## 循环
 
-循环
+- for
 
-for
+- while
 
-while
+- do ... while
 
-do ... while
-
-
+---
 
 continue 与 break
 
@@ -248,15 +264,13 @@ continue : 跳出本次循环,继续下一次循环.
 
 e.g. : 今天吃五个包子, 第三个有虫子,,继续吃第四个和第五个.
 
-
-
 break: 立即跳出整个循环
 
 e.g. : 今天吃五个包子, 第三个有半个虫子,吃个der,开始吐了,pink老师真是个怪物.
 
+---
 
-
-### 标识符命名规范
+# 标识符命名规范
 
 - 变量、函数的命名必须有意义,与其对应的作用想匹配
 
@@ -264,15 +278,13 @@ e.g. : 今天吃五个包子, 第三个有半个虫子,吃个der,开始吐了,pi
 
 - 函数名称一般用动词
 
+---
 
-
-
-
-### 数组
+# 数组
 
 不能直接给数组名赋值,否则会直接覆盖掉以前的数据
 
-
+---
 
 创建数组的方式
 
@@ -280,7 +292,7 @@ e.g. : 今天吃五个包子, 第三个有半个虫子,吃个der,开始吐了,pi
 
 2. 通过new Array()创建的数组,Array(2,3)等价于创建一个2行3列的二维数组.
 
-
+---
 
 检测是否为数组
 
@@ -292,7 +304,7 @@ e.g. : 今天吃五个包子, 第三个有半个虫子,吃个der,开始吐了,pi
 
   Array.isArray(arr)
 
-
+---
 
 添加/删除数组
 
@@ -308,7 +320,7 @@ pop()   //删除最后一个元素,一次只能删一个, 返回被删除的值
 
 shift() //删除第一个元素,一次只能删一个, 返回被删除的值
 
-
+---
 
 数组排序
 
@@ -321,16 +333,13 @@ shift() //删除第一个元素,一次只能删一个, 返回被删除的值
     eg: 
 
     ```javascript
-
+    
     sort(function(a, b){
-
       return a - b;   //a - b < 0 sort按照升序排列, 等于零位置不变
-
     })
-
     ```
 
-
+---
 
 数组索引:
 
@@ -338,11 +347,11 @@ indexOf('元素'[, 起始位置]) 查找给定元素的第一个索引, 返回�
 
 lastIndexOf() 
 
-
+---
 
 数组去重: 两个数组, 一个目标数组,一个空数组.通过索引,将目标数组中的元素逐一在空数组中查询,若返回-1则将该元素添加到这个空数组中.
 
-
+---
 
 数组转换为字符串: 
 
@@ -354,35 +363,27 @@ lastIndexOf()
 
   arr.join()
 
+---
 
-
-### 函数
+# 函数
 
 - 如果实参个数多于形参个数,则多出形参的部分将被舍弃
 
 - 若实参个数少于形参个数,则欠缺对应实参的形参的值是'undefined'
 
-
+---
 
 return只返回一个值,若以逗号隔开,以最后一个值为准.
 
-
-
 return返回多个值可以通过数组的形式
-
-
 
 没有return则返回undifined 
 
-
-
-
+---
 
 arguments的使用
 
-当不确定有多少个参数传递的时候,可以用arguments来获取.在js中,arguments实际上是当前函数(只有函数才有arguments)的一个**内置对象**.arguments对象中**存储了传递的所有实参**
-
-
+- 当不确定有多少个参数传递的时候,可以用arguments来获取.在js中,arguments实际上是当前函数(只有函数才有arguments)的一个**内置对象**.arguments对象中**存储了传递的所有实参**
 
 argument展示形式是一个伪数组,因此可以进行遍历.
 
@@ -392,6 +393,7 @@ argument展示形式是一个伪数组,因此可以进行遍历.
 
 - 不具有数组的push、pop等方法
 
+---
 
 函数声明方式:
 
@@ -403,11 +405,11 @@ argument展示形式是一个伪数组,因此可以进行遍历.
 
   var varName = function(){}
 
-
+---
 
 作用域：全局作用域和局部作用域
 
-
+---
 
 全局变量: 
 
@@ -417,7 +419,7 @@ argument展示形式是一个伪数组,因此可以进行遍历.
 
   e.g.: function fn(){ varName=2 }    //此时varName属于全局变量,因为他在函数内,但是没有使用'var'关键字声明
 
-
+---
 
 关于全局变量和局部变量的生命周期:
 
@@ -425,47 +427,30 @@ argument展示形式是一个伪数组,因此可以进行遍历.
 
 (2)局部变量当程序执行完毕就会销毁,比较借阅内存.
 
+---
 
-
-### 预解析
+# 预解析
 
 ```javascript
-
 console.log(num)  //报错
-
 ```
 
-
-
 ```javascript
-
 console.log(num)  //undefined
-
 var num=10
-
 ```
 
-
-
 ```javascript
-
 fn()              //正常执行
-
 function fn(){ console.log(1) }
-
 ```
-
-
 
 ```javascript
-
 fun()               //报错
-
 var fun = function{ console.log(2) }  
-
 ```
 
-
+---
 
 js引擎运行js分两步: 预解析与代码执行
 
@@ -479,107 +464,59 @@ js引擎运行js分两步: 预解析与代码执行
 
 2. 代码执行: 按照代码书写的顺序从上往下执行
 
-
-
 e.g.: 
-
 ```javascript
-
 var num = 10;
-
 fun();
-
 function fun(){
-
   console.log(num);
-
   var num = 20;
-
 }
-
 //输出结果 undefined
-
 //因为,上述代码相当于执行了下面这段
-
 var num
-
 function fun(){
-
   var num
-
   console.log(num)
-
   var num = 20
-
 }
-
 var num = 10
-
 fun()
-
 ```
-
-
 
 ```javascript
-
 var a = b = c = 9
-
 /*相当于  
-
 var a = 9;
-
 b = 9;
-
 c = 9;    b 和 c 变成了全局变量
-
 */
-
 ```
 
+# 对象
 
-
-
-
-### 对象
-
-对象是一组无序的相关属性和方法的集合
+- 对象是一组无序的相关属性和方法的集合
 
 属性: 事物的特征
 
 方法: 事物的行为
 
-
-
 ```javascript
-
 var obj = {
-
   uName: 'pink',
-
   age: 19,
-
   sayHi: function(){
-
     console.log('hello world')
-
   }
-
 }
-
 /* obj 类
-
 uName 和 age 是属性
-
 sayHi 是方法
-
 obj.sayHi()调用方法
-
 */
-
 ```
 
-
+---
 
 变量和属性: 
 
@@ -587,9 +524,7 @@ obj.sayHi()调用方法
 
 属性: 依附于对象存在,不需要声明
 
-
-
-
+---
 
 构造函数:
 
@@ -603,7 +538,7 @@ obj.sayHi()调用方法
 
 5. 属性前面使用this
 
-
+---
 
 new执行时做的事:
 
@@ -615,45 +550,31 @@ new执行时做的事:
 
 4. 返回这个新对象
 
-
+---
 
 for ... in  遍历对象中的属性
 
 ```javascript
-
 for (var every in obj) {
-
   /* every 是对象obj的属性名
-
      obj[every] 是属性值
-
   */
-
 }
-
 ```
 
+# 内置对象
 
+> js对象分三种: 自定义对象、内置对象和浏览器对象
+> 
+> 前两种属于ECMAScript, 第三个属于js独有.
 
-### 内置对象
+查文档: `https://developer.mozilla.org/zh-CN`
 
-js对象分三种: 自定义对象、内置对象和浏览器对象
-
-前两种属于ECMAScript, 第三个属于js独有.
-
-
-
-查文档: https://developer.mozilla.org/zh-CN
-
-
+---
 
 字符串的不可变性, 所以不要大量使用字符串拼接,导致浪费内存
 
-
-
-
-
-
+---
 
 替换字符串
 
@@ -661,7 +582,7 @@ replace('被替换的字符', '目标替换字符')
 
 str.replace('char1', 'char2')
 
-
+---
 
 字符串转为数组
 
@@ -669,17 +590,12 @@ eg: var str = 'red, pink, blue';
 
 str.split(',')  // 输出: ["red", "pink", "blue"]
 
+---
 
 
-
-
-
-
-### Web APIs
+# Web APIs
 
 Web APIs 与 js基础部分的联系
-
-js
 
 - ECMAScript   js基础
 
@@ -689,15 +605,17 @@ js
 
   DOM 和 BOM 属于Web APIs阶段
 
+---
 
+# DOM
 
-### DOM
+`文档树`
 
-文档树
-
-
+---
 
 console.dir()   // 返回元素对象, 更好的查看里面的属性和方法
+
+---
 
 如何获取页面元素
 
@@ -713,17 +631,17 @@ console.dir()   // 返回元素对象, 更好的查看里面的属性和方法
 
 - HTML5新增方法
 
-  document.getElementsByClassName('类名') // 根据类名获取
+  - document.getElementsByClassName('类名') // 根据类名获取
 
-  document.querySelector('选择器') // 根据指定选择器返回第一个元素对象
+  - document.querySelector('选择器') // 根据指定选择器返回第一个元素对象
 
-  document.querySelectorAll('选择器')
+  - document.querySelectorAll('选择器')
 
 - 获取特殊元素
 
   html body
 
-
+---
 
 标签名
 
@@ -732,14 +650,12 @@ console.dir()   // 返回元素对象, 更好的查看里面的属性和方法
 - element.getElementByTagName('标签名')
 
 ```javascript
-
 var ColTagName = document.getElementsByTagName('ol')
-
 console.log(ColTagName[0].getElementsByTagName('li'))
-
 // ColTagName 本身是一个伪数组, 里面的元素才是父元素
-
 ```
+
+---
 
 获取特殊元素
 
@@ -747,19 +663,18 @@ body:
 
   var bodyEle = document.body;
 
-
-
 html: 
 
   var htmlEle = document.documentElement;
 
+---
 
 
+## 事件
 
+- 可以被js侦察到的行为
 
-#### 事件
-
-可以被js侦察到的行为
+---
 
 由三部分组成: 事件源, 事件类型, 事件处理程序. 也成为事件三要素
 
@@ -770,18 +685,13 @@ html:
 3.事件处理程序: 通过一个函数赋值的方式完成
 
 ```javascript
-
 var btn = document.getElementById('btn'); // 事件源
-
 btn.onclick = function() {  // 事件类型: 鼠标点击
-
   alert('弹出警告框')   // 事件处理程序
-
 }
-
 ```
 
-
+---
 
 执行事件的步骤:
 
@@ -791,8 +701,9 @@ btn.onclick = function() {  // 事件类型: 鼠标点击
 
 3. 添加事件处理程序(采取函数赋值形式)
 
+---
 
-*操作元素
+### 操作元素
 
 修改元素内容:
 
@@ -806,12 +717,15 @@ element.innerHTML = 'str'
 
 innerText不识别html标签并且会去除空格和换行,innerHTML识别
 
+---
+
 样式属性操作:
 
 > 1. element.style  行内样式操作
 > 
 > 2. element.className  类名样式操作
 
+---
 
 获取属性的值: 
 
@@ -819,3 +733,22 @@ innerText不识别html标签并且会去除空格和换行,innerHTML识别
 
 2. element.getAttribute('属性')  获取自定义的属性
 
+  - 更改属性值 element.setAttribute('属性', '值')
+
+    - div.setAttribute('class', '值')     // class比较特殊,此处直接写class
+
+---
+
+移除自定义属性:
+
+  element.removeAttribute('属性')
+
+---
+
+自定义属性: 以"data-"开头, 便于识别
+
+---
+
+获取自定义属性的方法: 
+
+element.dataset.属性名.   dataset是一个集合, 里面存放了所有以'data'开头的属性
