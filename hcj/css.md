@@ -133,6 +133,7 @@ background: color image repeat attachment position;
 
 简写边框属性:
 border: width style(必需) color;
+
 左(右|上|下)边框:
 border-left(right|top|bottom): width style color;
 
@@ -142,13 +143,18 @@ border-radius
 外边距:
 margin[-top(bottom right left)]: px px px px | auto | inherit
 共可以写四个
+
 auto: 使其居中
+
 inherit: 继承
+
 **注意:** 允许负值
 
 内边距:
 padding[-top(bottom right left)]: px px px px | auto | inherit
+
 **注意:** 不允许负值
+
 box-sizing: border-box; 作用: 保持块宽度,不因内部padding导致总宽度增大
 
 最大宽度: 随页面尺寸改变
@@ -175,6 +181,7 @@ outline-offset: px
 display: none | block | inline | inline-block |...
 
 visibility: hidden 与 display: none
+
 visibilisty会占据位置,display隐藏的好像不存在一样
 
 inline-block: 可设置width和height,一行可有多个(结合了inline和block)
@@ -189,10 +196,15 @@ overflow[-x(y)]
 
 阴影效果:
 box-shadow: h-shadow v-shadow blur spread color inset;
+
 h-shadow: 必需,水平阴影的位置,允许负值
+
 v-shadow: 必需,垂直阴影的位置,允许负值
+
 blur: 可选,模糊距离: 阴影的虚实
+
 spread: 可选,阴影的尺寸: 阴影的大小
+
 inset: 将外部阴影改为内部阴影(outset默认,不用写出来)
 
 
@@ -202,6 +214,7 @@ inset: 将外部阴影改为内部阴影(outset默认,不用写出来)
 浮动和清楚: float clear
 
 float: none | right | left;
+
 float属性用于创建浮动框,将其移动到一边,知道左边缘或右边缘触及包含块或另一个浮动框的边缘
 
 特性:
@@ -225,22 +238,35 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 
 ### 案例
 5.3 CSS属性书写顺序(重点)
+
 建议遵循以下顺序:
+
 1.布局定位属性: display / position/ float / clear / visibility/ overflow (建议display第一个写 ,毕竟关系到模式)
+
 2.自身属性: width/ height / margin/ padding / border/ background
+
 3.文本属性: color/ font / text-decoration/ text-align/ vertical-align/ white- space / break-word
+
 4.其他属性( CSS3) : content/ cursor / border-radius / box-shadow / text -shadow/ background:linear-gradien...
 
+
 5.4页面布局整体思路
+
 为了提高网页制作的效率,布局时通常有以下的整体思路:
+
 1.必须确定页面的版心(可视区) , 我们测量可得知。
+
 2.分析页面中的行模块,以及每个行模块中的列模块。页面布局第- -准则.
+
 3.一行中的列模块经常浮动布局,先确定每个列的大小，之后确定列的位置.页面布局第二准则
+
 4.制作HTML结构。我们还是遵循,先有结构,后有样式的原则。结构永远最重要
+
 5.所以,先理清楚布局结构,再写代码尤为重要这需要我们多写多积累
 
 ### 定位
 将盒子**定**在某一个位置,**定位也是在摆放盒子,按照定位的方式移动盒子.**
+
 定位 = 定位模式 + 边偏移
 - static
 - relative
@@ -263,6 +289,7 @@ absolute:相对它的**祖先元素**来说的
 - **不再占有原先的位置.(脱标)**
 
 fixed:元素固定在浏览器可视区的位置
+
 主要使用场景: 浏览器页面滚动时,元素的位置不会改变.
 - 跟父元素没有任何关系
 - 不随滚动条滚动
@@ -289,6 +316,7 @@ z-index:
 
 #### 定位和浮动
 浮动: 只会压住下面标准流的盒子,但是不会压住标准流盒子里面的文字和图片. 浮动最初的设计是为了文字环绕图片.
+
 绝对定位会压住标准流下面所有的内容.
 
 
@@ -319,6 +347,7 @@ overflow: visible(默认) | hidden | scroll | auto;
 
 ### 三角
 给一个没有宽度的盒子设置边框,其中一个边框显示颜色,其他三个边框透明就可得到
+
 e.g. :
 ```html
 .box {
@@ -344,7 +373,7 @@ cursor:
 resize: none;
 
 
-vertical-align
+vertical-align: 
 经常用于设置图片或表单等行内块元素(或行内元素)与文字垂直对齐.
 - baseline  默认
 - top
@@ -352,8 +381,11 @@ vertical-align
 - bottom
 
 解决图片底部默认空白缝隙问题
+
 原因: 行内块(行内)元素与文字默认基线(baseline)对齐
+
 解决办法: 
+
 1. vertical-align: top | middle | bottom
 2. 把图片转为块元素display: block;
 
@@ -370,15 +402,18 @@ vertical-align
 了解就好,让后台来做
 
 
-margin负值
-边框重复: 
+margin负值 和 边框重复: 
+
 解决: margin-left: -1px;
 
 若按照上面描述,右边框会被后面的盒子压住,显示不出来
+
 解决:
-1.没有定位的情况
+
+1. 没有定位的情况
 position: relative; 增加相对定位,压住其他盒子
-2.有定位情况
+2. 有定位情况
+
 z-index: 1;提高等级
 
 
