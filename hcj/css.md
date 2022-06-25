@@ -7,7 +7,6 @@
 - font-variant
 
 ---
-
 样式:
 > font-style: normal | italic | oblique
 
@@ -18,7 +17,6 @@ italic: 斜体
 oblique: "倾斜"
 
 ---
-
 粗细:
 > font-weight: normal(400) | bold(700)
 
@@ -27,16 +25,13 @@ normal
 bold: 加粗
 
 ---
-
 变体:
 > font-variant: normal | small-caps
 
 small-caps: 将小写字母转为大写字母,但是比正常大写字母小一些
 
 ---
-
 大小:
-
 > font-size: px | em
 
 px: 像素单位
@@ -44,14 +39,12 @@ px: 像素单位
 1em相当于当前字体大小.浏览器默认文本大小为16px
 
 ---
-
 字体属性简写:
 > font: style variant weight size/line-height family;
 
 **注意:** size 和 family是必须的,其他缺少会使用默认值
 
 ---
-
 ### text
 - color
 - text-align
@@ -71,9 +64,9 @@ px: 像素单位
 > text-align: right | left | center | ...
 
 文本方向:
-> direction: rtl
+> direction: rtl  // 正向
 > 
-> unicode-bidi: bidi-override
+> unicode-bidi: bidi-override // 反向
 
 文本中图像的垂直对齐:
 > vertical-align: top | middle
@@ -89,9 +82,7 @@ px: 像素单位
 capitalize: 首字母大写
 
 文本缩进:
-> text-indent: px | em
-
-第一行的缩进
+> text-indent: px | em; // 第一行的缩进
 
 字母间距:
 > letter-spacing
@@ -107,7 +98,7 @@ capitalize: 首字母大写
 
 对空白部分的处理,上面例子:不折行
 
-阴影效果:
+文本阴影效果:
 > text-shadow:h-shadow v-shadow blur color;
 
 h-shadow: 必需,水平阴影的位置,允许负值
@@ -117,13 +108,15 @@ v-shadow: 必需,垂直阴影的位置,允许负值
 blur: 可选,模糊距离: 阴影的虚实
 
 ---
-
 ### background
 - background-color
 - background-image
 - background-repeat
 - background-attachment
 - background-position
+
+background-color: 
+> opacity: ;  // 使用 opacity 属性为元素的背景添加透明度时，其所有子元素都继承相同的透明度。这可能会使完全透明的元素内的文本难以阅读。rgba不会对子元素应用不透明度
 
 背景图片:
 > background-image: none | url(url)
@@ -144,8 +137,7 @@ blur: 可选,模糊距离: 阴影的虚实
 > background-attachment: scroll | fixed
 
 ---
-
-复合写法:没有固定顺序,一般约定为
+简写属性:没有固定顺序,一般约定为
 > background: color image repeat attachment position;
 
 ### border
@@ -191,18 +183,17 @@ blur: 可选,模糊距离: 阴影的虚实
 **注意:** 不允许负值
 
 ---
-box-sizing: border-box; 作用: 保持块宽度,不因内部padding导致总宽度增大
+box-sizing: border-box; 作用: 保持块宽度,不被撑大
 
 ---
-
 最大宽度: 随页面尺寸改变: max-width
 
 ---
-
-
 ### outline
 
-**注意：**轮廓与边框不同！不同之处在于：轮廓是在元素边框之外绘制的，并且可能与其他内容重叠。同样，轮廓也不是元素尺寸的一部分；元素的总宽度和高度不受轮廓线宽度的影响。
+**注意**: 轮廓与边框不同！
+
+不同之处在于：轮廓是在元素边框之外绘制的，并且可能与其他内容重叠。同样，轮廓也不是元素尺寸的一部分；元素的总宽度和高度不受轮廓线宽度的影响。
 - outline
   - outline-style
     - 与border-style一样
@@ -218,20 +209,38 @@ box-sizing: border-box; 作用: 保持块宽度,不因内部padding导致总宽�
 
 
 ## 更多
+
+选择器: 后代, 子, 通用兄弟, 相邻兄弟选择器
+- 后代选择器(空格)
+- 子选择器(>)
+- 相邻兄弟选择器(+)
+- 通用兄弟选择器(~)
+
+**注意**: 只能选择其后的元素
+
+---
+属性选择器: css[attribute] css可省略
+- a[target]
+- a[target="_blank"]
+- img[title~="value"]
+  - 包含value的类. 词独立
+- img[class|="top"]
+  -  以top开头的类, 必须是完整或单独的单词: class="top"或class="top-text"
+- [class^="top"]
+  - 以top开头即可
+- [class$="text"] 以text结尾, 可不必完整
+- [class*="value"] 包含value的所有
+
 ---
 > display: none | block | inline | inline-block |...
-
----
-
-visibility: hidden 与 display: none
-- visibilisty会占据位置,display隐藏的好像不存在一样
-
----
 
 inline-block: 可设置width和height,一行可有多个(结合了inline和block)
 
 ---
+visibility: hidden 与 display: none
+- visibilisty会占据位置,display隐藏的好像不存在一样
 
+---
 overflow[-x(y)]
 - visible - 默认。溢出没有被剪裁。内容在元素框外渲染
 - hidden - 溢出被剪裁，其余内容将不可见
@@ -239,7 +248,6 @@ overflow[-x(y)]
 - auto - 与 scroll 类似，但仅在必要时添加滚动条
 
 ---
-
 阴影效果:
 > box-shadow: h-shadow v-shadow blur spread color inset;
 - h-shadow: 必需,水平阴影的位置,允许负值
@@ -253,13 +261,11 @@ overflow[-x(y)]
 标准流(文档流、普通流)、float、position
 
 浮动和清除: float clear
-
 > float: none | right | left;
 
 float属性用于创建浮动框,将其移动到一边,知道左边缘或右边缘触及包含块或另一个浮动框的边缘
 
 ---
-
 特性:
 1. 浮动元素会脱离标准流(脱标)
    1. 脱离标准流的控制(脱)浮动到指定位置(动),俗称脱标.
@@ -268,7 +274,6 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 3. 浮动的元素会具有行内块元素的特性
 
 ---
-
 清除浮动:
 - 清除浮动造成的影响
 - 若父盒子本身有高度则不需要清除浮动
@@ -296,15 +301,14 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 > color/ font / text-decoration/ text-align/ vertical-align/ white- space / break-word
 
 4. 其他属性( CSS3) : 
-> content/ cursor / border-radius / box-shadow / text -shadow/ background:linear-gradien...
+> content/ cursor / border-radius / box-shadow / text-shadow/ background:linear-gradien...
 
 ---
-
 页面布局整体思路
 
 为了提高网页制作的效率,布局时通常有以下的整体思路:
 1. 必须确定页面的版心(可视区) , 我们测量可得知。
-2. 分析页面中的行模块,以及每个行模块中的列模块。页面布局第- -准则.
+2. 分析页面中的行模块,以及每个行模块中的列模块。页面布局第一准则.
 3. 一行中的列模块经常浮动布局,先确定每个列的大小，之后确定列的位置.页面布局第二准则
 4. 制作HTML结构。我们还是遵循,先有结构,后有样式的原则。结构永远最重要
 5. 所以,先理清楚布局结构,再写代码尤为重要这需要我们多写多积累
@@ -319,7 +323,6 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 - sticky
 
 ---
-
 static:默认方式,无定位的意思(了解)
 
 ---
@@ -403,7 +406,7 @@ overflow: visible(默认) | hidden | scroll | auto;
 3. 一般情况小都是负值.
 
 ### 字体图标
-- 轻量级: 一个图标字体要比一系列的图像要小。- -旦字体加载了,图标就会马上渲染出来,减少了服务器请求
+- 轻量级: 一个图标字体要比一系列的图像要小。一旦字体加载了,图标就会马上渲染出来,减少了服务器请求
 - 灵活性:本质其实是文字,可以很随意的改变颜色、产生阴影、透明效果、旋转等
 - 兼容性:几乎支持所有的浏览器,请放心使用
 
