@@ -210,11 +210,26 @@ box-sizing: border-box; 作用: 保持块宽度,不被撑大
 
 ## 更多
 
+三大特性: 层叠性, 继承性, 优先级
+
+优先级: 
+```c
+继承或者*      0000
+元素选择器     0001
+类(伪类)选择器  0010
+id选择器       0100
+行内样式       1000
+!important    无穷
+```
+
+---
 选择器: 后代, 子, 通用兄弟, 相邻兄弟选择器
 - 后代选择器(空格)
 - 子选择器(>)
 - 相邻兄弟选择器(+)
 - 通用兄弟选择器(~)
+- 并集选择器(,)
+- 伪类选择器
 
 **注意**: 只能选择其后的元素
 
@@ -230,6 +245,11 @@ box-sizing: border-box; 作用: 保持块宽度,不被撑大
   - 以top开头即可
 - [class$="text"] 以text结尾, 可不必完整
 - [class*="value"] 包含value的所有
+
+---
+链接伪类选择器：
+
+顺序： :link, :visited, :hover, :active
 
 ---
 > display: none | block | inline | inline-block |...
@@ -273,6 +293,8 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 2. 浮动元素会一行内显示并且元素顶部对齐
 3. 浮动的元素会具有行内块元素的特性
 
+行内块之间默认有间隙
+
 ---
 清除浮动:
 - 清除浮动造成的影响
@@ -284,6 +306,34 @@ float属性用于创建浮动框,将其移动到一边,知道左边缘或右边�
 2. 父级元素添加overflow属性, hidden,auto,scroll
 3. 父级元素添加after伪元素
 4. 父级元素添加双伪元素
+
+2, 父元素添加overflow属性
+
+缺点: 会隐藏溢出的部分
+
+3, ::after
+```javascript
+.clearfix::after{
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+```
+
+---
+4, ::before  ::after
+```javascript
+.clearfix::before,
+.clearfix::after{
+  conten: "";
+  display: table;
+}
+.clearfix::after{
+  clear: both;
+}
+```
 
 ### 案例
 
@@ -405,7 +455,7 @@ overflow: visible(默认) | hidden | scroll | auto;
 2. 借助background-position实现
 3. 一般情况小都是负值.
 
-### 字体图标
+### 字体图标(iconFont)
 - 轻量级: 一个图标字体要比一系列的图像要小。一旦字体加载了,图标就会马上渲染出来,减少了服务器请求
 - 灵活性:本质其实是文字,可以很随意的改变颜色、产生阴影、透明效果、旋转等
 - 兼容性:几乎支持所有的浏览器,请放心使用
