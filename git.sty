@@ -37,3 +37,68 @@ git log
 
 git commit --amend
 
+
+git reset HEAD <filesName> 取消暂存
+
+
+远程仓库
+git remote 
+
+-v 列出全部远程仓库
+add <shortName> <url> 添加远程仓库
+show <remote>
+
+
+git fetch与git pull
+
+
+git push <remote> <branch>
+
+
+git remote rename <sourceName> <targetName>
+
+git remote remove <remote>
+
+
+打标签
+
+轻量标签(lightweight) 和 附注标签(annotated)
+
+附注标签:
+
+ git tag -a v1.4 -m "test v1.4"
+ 
+ git show v1.4
+
+
+轻量标签:
+ 
+ git tag v1.5
+
+
+后期打标签:
+
+ git tag -a v1.6 校验和(或者部分校验和)
+
+
+git push origin <tagname>
+
+git push origin --tags 一次性推送多个标签
+
+
+删除标签
+
+ git tag -d tagname
+
+删除远程仓库标签的两种方式:
+1: git push origin :refs/tags/tagname
+
+2: git push origin --delete tagname
+
+
+别名: .git/config --> [alias]
+
+# global是为了对当前用户生效,不叫仅对当前仓库生效
+git config --global alias.shortName targetName  
+
+eg: git config --global alias.co chechout
