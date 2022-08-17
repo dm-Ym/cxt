@@ -213,14 +213,80 @@ public static void merge(Integer[] a, int lo, int mid, int hi) {
 
 ```
 
-
-
-=======
->>>>>>> f67c3532f9561dec96d3d566b3cbc4d7a1e6c901
 O(nlogn)
 
 
 - 快速排序
+
+```java
+public static void main(String[] args) {
+    Integer[] a = {2, 6, 8, 4, 2, 7, 9, 2, 0, 3};
+
+    /**
+     *  快速排序
+     */
+    int lo = 0;
+    int hi = a.length - 1;
+
+    sort(a, lo, hi);
+    System.out.println(Arrays.toString(a));
+
+}
+
+public static void sort(Integer[] a, int lo, int hi){
+
+    if (lo>=hi)
+        return;
+
+    // 找到分界值下标进行分组
+    int partition = partition(a, lo, hi);
+
+    sort(a, lo, partition-1);
+    sort(a, partition+1, hi);
+
+}
+
+public static int partition(Integer[] a, int lo, int hi){
+
+    int key = a[lo];
+    int left = lo;
+    int right = hi + 1;
+
+    while (true){
+        // 从右往左, 直到找到比key小的数
+        while (key < a[--right]){
+            if (right <= left)
+                break;
+        }
+
+        // 从左往右, 直到找到比key大的数
+        while (key > a[++left]){
+            if ((left >= right))
+                break;
+        }
+
+        if (left >= right)
+            break;
+        else
+            exch(a, right, left);
+    }
+    // 交换key和right停止位置的值, 此处只能是right, 因为left会大于right
+    exch(a, lo, right);
+
+    // 返回key值的下标
+    return right;
+}
+
+public static void exch(Integer[] a, int right, int left){
+    Integer temp;
+
+    temp = a[right];
+    a[right] = a[left];
+    a[left] = temp;
+}
+
+```
+
 
 平均O(nlogn)
 最坏O(n^2)
