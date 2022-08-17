@@ -149,6 +149,7 @@ System.out.println(Arrays.toString(a));
 
 - 归并排序
 
+<<<<<<< HEAD
 ```java
 psvm{
     Integer[] a = {2,6,8,4,2,7,9,2,0,3};
@@ -214,6 +215,8 @@ public static void merge(Integer[] a, int lo, int mid, int hi) {
 
 
 
+=======
+>>>>>>> f67c3532f9561dec96d3d566b3cbc4d7a1e6c901
 O(nlogn)
 
 
