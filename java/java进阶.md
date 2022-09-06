@@ -292,6 +292,78 @@ public static void exch(Integer[] a, int right, int left){
 最坏O(n^2)
 
 - 堆排序
+```java
+package sty;
+
+import java.util.Arrays;
+
+public class TestHeap {
+    public static void main(String[] args) {
+        int[] arrHeap = {20,30,90,40,70,110,60,10,100,50,80};
+        heapAscending(arrHeap, arrHeap.length);
+        System.out.println(Arrays.toString(arrHeap));
+    }
+
+    /**
+     * 堆排序, 从小到大
+     * @param arr 堆数组
+     * @param N   数组长度
+     */
+    public static void heapAscending(int[] arr, int N){
+        int i;
+        // 得到一个二叉堆
+        for (i = N / 2 - 1; i >= 0; i--)
+            maxSink(arr, i, N - 1);
+
+        // 排序
+        for (i = N - 1; i > 0; i--){
+            exch(arr, 0, i);
+            maxSink(arr, 0, i - 1);
+        }
+    }
+
+    /**
+     * 下沉
+     * @param arr   堆数组
+     * @param start 一定范围(0~n)的起始点
+     * @param end   一定范围(0~n)的末尾需要交换的点
+     */
+    public static void maxSink(int[] arr, int start, int end){
+        int left = 2 * start + 1; // 左节点, 右节点为left+1
+
+        while (left <= end){
+            // 此处必须是left<end, 不然会导致混乱.  比较后取左右子节点较大的那个
+            if (left < end && arr[left] <= arr[left+1])
+                left++;
+            // 比较子节点和父节点大小
+            if (arr[start] >= arr[left])
+                break;
+            else
+                exch(arr, start, left);
+            // 继续向下比较
+            start = left;
+            left = 2 * left + 1;
+        }
+
+    }
+
+    /**
+     * 交换方法
+     * @param arr  堆数组
+     * @param i    索引i
+     * @param j    索引j
+     */
+    public static void exch(int[] arr, int i, int j){
+        int temp;
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+```
+
+
 - 桶排序和基数排序
 - 外部排序
 
