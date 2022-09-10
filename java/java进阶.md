@@ -46,24 +46,49 @@ Queue接口
 
 
 ## 4. 排序
+- 插入排序 
+- 冒泡排序
+- 选择排序
+- 希尔排序
+- 归并排序
+- 快速排序
+- 堆排序
+
+
 - 插入排序
 ```java
-Integer[] a = {2,6,8,4,2,7,9,2,0};
-Integer temp;
+import java.util.Arrays;
 
-for (int i = 1; i < a.length; i++) {
-    for (int j = i; j > 0; j--) {
-        if (a[j] < a[j - 1]){
-            temp = a[j];
-            a[j] = a[j - 1];
-            a[j - 1] = temp;
-        }else {
-            break;
+public class SelectSort {
+    public static void main(String[] args) {
+        int[] arr = {2,6,3,5,7,1,6,4,8,9};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * 插入排序: 好似打扑克牌, 从第二张开始, 将它插入到合适的位置.
+     * @param a
+     */
+    public static void sort(int[] a){
+        int insert;
+        int j;
+        for (int i = 1; i < a.length; i++) {
+            // 将未排序的第一个元素视为待插入元素.
+            insert = a[i];
+            // j索引的值用来与insert比较
+            j = i - 1;
+            // 从已排序的最后一个逐一想起比较, 若a[j]比insert大, 则将a[j]向后移
+            while (j >= 0 && insert < a[j]){
+                a[j+1] = a[j];
+                j--;
+            }
+            // 将待插入元素放在合适的位置
+            a[j+1] = insert;
         }
     }
-}
-System.out.println(Arrays.toString(a));
 
+}
 ```
 
 
@@ -72,42 +97,91 @@ O(N^2)
 
 - 冒泡排序
 ```java
-Integer[] a = {2,6,8,4,2,7,9,2,0};
-Integer temp;
+import java.util.Arrays;
 
-for (int i = 0; i < a.length; i++) {
-    for (int j = i + 1; j < a.length; j++) {
-        if (a[i] > a[j]){
-            temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+public class SelectSort {
+    public static void main(String[] args) {
+        int[] arr = {2,6,3,5,7,1,6,4,8,9};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * 排序方法: 两个for循环, 将相邻两个数中较大的数向后挪.
+     * @param a
+     */
+    public static void sort(int[] a){
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j < a.length; j++) {
+                if (a[i] > a[j])
+                    exch(a, i, j);
+            }
         }
     }
+
+    /**
+     * 交换数组中的两个数
+     * @param a
+     * @param i
+     * @param j
+     */
+    public static void exch(int[] a, int i, int j){
+        int temp;
+        temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
 }
-System.out.println(Arrays.toString(a));
 
 ```
-
 
 O(N^2)
 
 
 - 选择排序
 ```java
-Integer[] a = {2,5,1,3,7,8,3,6,6};
-Integer temp;
+import java.util.Arrays;
 
-for (int i=0; i < a.length - 1; i++){
-    int minIndex = i;
-    for (int j = i+1; j<a.length; j++){
-        if(a[minIndex] > a[j])
-            minIndex = j;
+public class SelectSort {
+    public static void main(String[] args) {
+        int[] arr = {2,6,3,5,7,1,6,4,8,9};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
-    temp = a[i];
-    a[i] = a[minIndex];
-    a[minIndex] = temp;
+
+    /**
+     * 排序方法: 找到最小的值与第一个数交换,依次类推
+     * @param arr  待排序数组
+     */
+    public static void sort(int[] arr){
+        int min;
+        for (int i = 0; i < arr.length; i++) {
+            min = i;   // min为第一个未排序索引, 等待后续与此交换
+            for (int j = i; j < arr.length; j++) {
+                if (arr[min] > arr[j]){
+                    min = j;
+                }
+            }
+            if (i != min)
+                exch(arr, i, min);
+        }
+    }
+
+    /**
+     * 交换方法: 交换数组中的两个数
+     * @param arr  待排序数组
+     * @param i    索引i
+     * @param j    索引j
+     */
+    public static void exch(int[] arr, int i, int j){
+        int temp;
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }
-System.out.println(Arrays.toString(a));
+
 ```
 
 O(N^2)
@@ -148,8 +222,6 @@ System.out.println(Arrays.toString(a));
 
 
 - 归并排序
-
-<<<<<<< HEAD
 ```java
 psvm{
     Integer[] a = {2,6,8,4,2,7,9,2,0,3};
@@ -217,7 +289,6 @@ O(nlogn)
 
 
 - 快速排序
-
 ```java
 public static void main(String[] args) {
     Integer[] a = {2, 6, 8, 4, 2, 7, 9, 2, 0, 3};
