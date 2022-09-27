@@ -2,18 +2,21 @@
 let mapleader=';'
 " 
 set mouse=a
+" snippits.vim
+source ~/.config/nvim/snippits.vim
 " map
 nnoremap <leader>w :w!<CR>
 noremap H 0
 noremap L $
 noremap m 5j
 noremap M 4k
-noremap U u
+noremap U <C-r>
 nnoremap <leader>' 0i"<esc>
 nnoremap <leader>3 0i#<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 vnoremap L g_
+vnoremap H ^
 vnoremap fy "+y
 inoremap jk <ESC>
 "inoremap <esc> <nop>
@@ -87,8 +90,8 @@ noremap <C-H> <C-w>h
 " window resize
 noremap <up> :res -5<CR>
 noremap <down> :res +5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
+noremap <left> :vertical resize+5<CR>
+noremap <right> :vertical resize-5<CR>
 " 分屏切换
 map zh <C-W>t<C-W>K
 map zv <C-W>t<C-w>H

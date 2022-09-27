@@ -50,9 +50,11 @@ xorg
 
 # pacman安装
 alsa-utils
+ark			// kde压缩软件
 bluedevil
 curl
 cmatrix
+htop // 观测内存使用情况
 ntfs-3g
 networkmanager
 refind
