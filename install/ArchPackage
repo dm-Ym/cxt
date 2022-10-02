@@ -55,8 +55,9 @@ bluedevil
 curl
 cmatrix
 htop // 观测内存使用情况
+kwallet-pam    kde启动每次都需要输入密码,安装缺失的这个包
 ntfs-3g
-networkmanager
+networkmanager  并设置开机启动
 refind
 screen
 sudo

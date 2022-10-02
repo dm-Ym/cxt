@@ -18,3 +18,9 @@ yarn build
 
 
 :checkhealth
+
+## 插件
+安装方式: CocInstall plugin
+
+coc-pairs   提供自动配对支持
+

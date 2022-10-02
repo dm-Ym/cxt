@@ -3,7 +3,9 @@ let mapleader=';'
 " 
 set mouse=a
 " snippits.vim
-source ~/.config/nvim/snippits.vim
+source ~/.config/nvim/snippets.vim
+" 
+source ~/.config/nvim/complete.vim
 " map
 nnoremap <leader>w :w!<CR>
 noremap H 0
@@ -108,6 +110,7 @@ noremap tl :+tabnext<CR>
 " vim-plug 
 "
 call plug#begin('~/.config/nvim/plugged')
+
 " status bar
 Plug 'vim-airline/vim-airline'
 
@@ -120,7 +123,17 @@ Plug 'luochen1990/rainbow'
 " coc.nvim 
 Plug 'neoclide/coc.nvim'
 
+" vim theme
+
+" vim-table-mode   .md 表格
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
+
+"
+""" vim theme
+"
+
 
 
 "
@@ -174,16 +187,16 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
@@ -268,3 +281,4 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+

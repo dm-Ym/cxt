@@ -3,15 +3,16 @@
     "debug.console.fontSize": 18,
     "editor.cursorBlinking": "solid",
     "window.zoomLevel": 1,
+    "editor.mouseWheelZoom": true,
     "window.menuBarVisibility": "toggle",
-    "workbench.iconTheme": "vscode-icons",
-    "bracket-pair-colorizer-2.depreciation-notice": false,
+    //"workbench.iconTheme": "vscode-icons",
+    //"bracket-pair-colorizer-2.depreciation-notice": false,
     "explorer.confirmDelete": false,
     "emmet.triggerExpansionOnTab": true,
     "editor.codeActionsOnSave": {
     },
 
-    "markdown-preview-enhanced.mermaidTheme":"forest",
+    //"markdown-preview-enhanced.mermaidTheme":"forest",
 
     // 保存时自动格式化
     // "editor.formatOnType": true,

@@ -18,11 +18,12 @@
 
 1.打开终端,粘贴下面的文本，替换为您的 GitHub 电子邮件地址。
 
-> ssh-keygen -t ed25519 -C "your_email@example.com"
-
 > **注意**：如果您使用的是不支持 Ed25519 算法的旧系统，请使用：
 > 
 > $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+> ssh-keygen -t ed25519 -C "your_email@example.com"
+
 
 这将使用提供的电子邮件作为标签创建一个新的 SSH 密钥。
 
@@ -34,9 +35,9 @@
 
 在提示符处，键入安全密码。
 
-> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter passphrase (empty for no passphrase): [Type a passphrase]	//不输入则不用密码
 > 
-> Enter same passphrase again: [Type passphrase again]			//不输入则不用密码
+> Enter same passphrase again: [Type passphrase again]				//不输入则不用密码
 
 2.将SSH密钥添加到ssh-agent
 
