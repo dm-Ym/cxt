@@ -4,7 +4,6 @@ let mapleader=';'
 set mouse=a
 " snippits.vim
 source ~/.config/nvim/snippets.vim
-" 
 source ~/.config/nvim/complete.vim
 " map
 nnoremap <leader>w :w!<CR>
@@ -125,7 +124,7 @@ Plug 'neoclide/coc.nvim'
 
 " vim theme
 
-" vim-table-mode   .md 表格
+" vim-table-mode
 Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
