@@ -1,0 +1,11 @@
+关于不显示refind多于图标这件事
+
+sudo nvim /boot/efi/EFI/refind/refind.conf 
+
+390行   dont_scan_dirs
+
+将不需要的图标路径添加到此
+
+eg:
+
+dont_scan_dirs ESP:/EFI/ARCh,EFI/refind,EFI/arch
