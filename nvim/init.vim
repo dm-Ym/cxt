@@ -126,6 +126,9 @@ Plug 'neoclide/coc.nvim'
 
 " vim-table-mode
 Plug 'dhruvasagar/vim-table-mode'
+"
+"" <leader>tm 启动与禁用插件
+"
 
 call plug#end()
 
