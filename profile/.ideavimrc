@@ -4,12 +4,13 @@ let mapleader=';'
 set mouse=a
 " map
 nnoremap <leader>w :w!<CR>
-nnoremap H 0
-nnoremap L $
+nnoremap <C-A> 0
+nnoremap <C-E> $
 nnoremap m 5j
 nnoremap M 4k
 nnoremap Q :q<CR>
 vnoremap L g_
+vnoremap H ^
 vnoremap fy "+y<ESC>
 vnoremap m 5j
 vnoremap M 4k

@@ -7,8 +7,8 @@ source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/complete.vim
 " map
 nnoremap <leader>w :w!<CR>
-noremap H 0
-noremap L $
+noremap <C-e> $
+noremap <C-a> 0
 noremap m 5j
 noremap M 4k
 noremap U <C-r>
