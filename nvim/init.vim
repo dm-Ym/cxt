@@ -9,8 +9,8 @@ source ~/.config/nvim/complete.vim
 nnoremap <leader>w :w!<CR>
 noremap <C-e> $
 noremap <C-a> 0
-noremap m 5j
-noremap M 4k
+" noremap m 5j
+" noremap M 4k
 noremap U <C-r>
 nnoremap <leader>' 0i"<esc>
 nnoremap <leader>3 0i#<esc>

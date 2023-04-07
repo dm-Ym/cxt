@@ -1,67 +1,169 @@
 {
-    "editor.fontSize": 18,
+    "editor.fontSize": 20,
     "debug.console.fontSize": 18,
     "editor.cursorBlinking": "solid",
-    "window.zoomLevel": 1,
-    "editor.mouseWheelZoom": true,
+    "window.zoomLevel": 3,
     "window.menuBarVisibility": "toggle",
-    //"workbench.iconTheme": "vscode-icons",
-    //"bracket-pair-colorizer-2.depreciation-notice": false,
+    "editor.mouseWheelZoom": true,
+    "open-in-browser.default": "google-chrome-stable",
+    // "workbench.iconTheme": "vscode-icons",
+    // "bracket-pair-colorizer-2.depreciation-notice": false,
     "explorer.confirmDelete": false,
     "emmet.triggerExpansionOnTab": true,
-    "editor.codeActionsOnSave": {
-    },
-
-    //"markdown-preview-enhanced.mermaidTheme":"forest",
-
+    "editor.codeActionsOnSave": {},
+    // "markdown-preview-enhanced.mermaidTheme": "forest",
     // 保存时自动格式化
-    // "editor.formatOnType": true,
-    // "editor.formatOnSave": true,
-
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    // tab补全切换而不是确认
     // vim
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.leader": ";",
-    "vim.commandLineModeKeyBindingsNonRecursive": [
-    ],
+    //
+    // vim命令助记
+    //
+    // gh --> 查看文档信息,相当于鼠标悬停
+    // gd --> 跳转至函数定义处,相当于Ctrl+鼠标左键
+    // gj --> 物理移动一行(不展开折叠的代码)
+    // wW eE bB 大小写的光标移动区别: 大写的:连在一起的算一个,小写反之;
+    // J --> 当前行和下一行合并为一行.
+    // <C-i> <C-o> 向前/后跳转
+    // <C-u/d/f/b> 向上/下滚半屏,向下/上滚一屏
+    // f/F 向左/右搜索字符
+    // c+s+e 侧边资源管理器与编辑区域切换
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
     "vim.insertModeKeyBindings": [
-        { "before": ["j", "k"],      "after": ["<Esc>"] },
-        { "before": ["<C-j>"],       "after": ["down"]  },
-        { "before": ["<C-k>"],       "after": ["up"]    },
-        { "before": ["<C-h>"],       "after": ["left"]  },
-        { "before": ["<C-l>"],       "after": ["right"] },
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": ["f","y"],       "after": ["\"", "+", "y","<Esc>"] },
-        { "before": ["L"],           "after": ["$","h"]        },
-        { "before": ["H"],           "after": ["^"]            },
-        { "before": ["enter"],       "after": ["a", "f"]       },
-        { "before": ["m"],           "after"   :["4","j"]      },
-        { "before": ["M"],           "after"   :["5","k"]      }
-      ],
+        {
+            "before": [
+                "f",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y",
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        }
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["z","l"],		 "commands": ["workbench.action.splitEditorRight"]},
-        { "before": ["z","h"],		 "commands": ["workbench.action.splitEditorLeft"] },
-        { "before": ["z","j"],		 "commands": ["workbench.action.splitEditorDown"] },
-        { "before": ["z","k"],		 "commands": ["workbench.action.splitEditorUp"]   },
-        { "before": ["<leader>","w"],"commands":[":w!"]      },
-        { "before": ["<leader>","h"],"commands":[":nohl"]    },
-        { "before": ["Q"],           "commands":[":q!"]      },
-        { "before": ["H"],           "after"   :["^"]        },
-        { "before": ["L"],           "after"   :["$"]        },
-        { "before": ["m"],           "after"   :["4","j"]    },
-        { "before": ["M"],           "after"   :["5","k"]    },
-        { "before": ["g","l"],       "after"   :["<C-w>","l"]},
-        { "before": ["g","h"],       "after"   :["<C-w>","h"]},
-        { "before": ["g","j"],       "after"   :["<C-w>","j"]},
-        { "before": ["g","k"],       "after"   :["<C-w>","k"]},
-        { "before": ["t","k"],       "after"   :["g","t"]    },
-        { "before": ["t","j"],       "after"   :["g","T"]    },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                ":w!"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "Q"
+            ],
+            "commands": [
+                ":q!"
+            ]
+        },
+        {
+            "before": [
+                "<C-a>"
+            ],
+            "after": [
+                "0"
+            ]
+        },
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "z",
+                "j"
+            ],
+            "after": [
+                "g",
+                "T"
+            ]
+        },
+        {
+            "before": [
+                "z",
+                "k"
+            ],
+            "after": [
+                "g",
+                "t"
+            ]
+        },
+        // {
+        //     "before": [
+        //         "m"
+        //     ],
+        //     "after": [
+        //         "4",
+        //         "j"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "M"
+        //     ],
+        //     "after": [
+        //         "5",
+        //         "k"
+        //     ]
+        // },
     ],
     "terminal.integrated.allowChords": false,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    //"liveServer.settings.donotShowInfoMsg": true,
+    //"markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "editor.tabSize": 2,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Visual Studio Light",
+    "markdown.preview.fontSize": 18,
+    "scm.inputFontSize": 16
 }
